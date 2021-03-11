@@ -2,6 +2,8 @@
     border: 1px solid;
     margin-left: 20px;
     margin-top: 5px;
+    padding: 10px;
+    box-shadow: 3px 4px 3px 0px #d3d0d0;
 }
 .search-layout{
         width: 200px; 
@@ -29,6 +31,7 @@
 table.table-bordered{
     /* border-bottom: 1px solid; */
     border: 1px solid;
+    box-shadow: 2px 0px 2px 2px #d3d0d0;
     /* border:1px solid red; */
     margin-top:20px;
   }
@@ -53,6 +56,8 @@ table.table-bordered{
 .border-footer{
     border: 1px solid;
     padding: 10px;
+    box-shadow: 3px 6px 5px  5px #d3d0d0;
+
 }
 .table {
     /* min-height: 800px; */
@@ -68,13 +73,26 @@ a:link {
     text-decoration: underline;
   }
   .table .thead-light th {
-    border-right: 1px solid;
-    border-left: 1px solid;
+   border: 1px solid;
     color: #495057;
     padding: 10px;
     background-color: #e9ecef;
     /* border-color: #dee2e6; */
-    border-top: 1px solid !important;
+   
     /* border: 0 0 0 0; */
     /* border: 1 1 1 1; */
+}
+
+::ng-deep .ngx-pagination li {
+    /* display: inline-block; */
+    /* color:#16759b !important; */
+    text-decoration: underline !important;
+}
+::ng-deep .ngx-pagination .current {
+    color: #16759b !important;
+    background-color: white !important;
+}
+::ng-deep a:not([href]):not([class]) {
+    color:#16759b !important;
+    text-decoration: underline !important;
 }

@@ -11,6 +11,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     component: LandingPageComponent
 },
     ]),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,FormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

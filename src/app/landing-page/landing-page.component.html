@@ -1,7 +1,7 @@
 <div>
     <div class="d-flex">
         <div class="menu-left-outline ">
-            <div style="margin-left: 5px;">
+            <div style="margin-left: 5px; margin-top: 20px;">
                     <p (click)="dropdown()" class="ams">
                         <i class="fa fa-folder" aria-hidden="true"></i>
                             Audit Management System</p>
@@ -19,28 +19,34 @@
              </div>
             
         </div>
-        <div class="" style="padding-top: 100px; padding-left: 30px; width: 80%;">
-            <h3>Check Lists</h3>
+        <div class="" style="padding-top: 200px; padding-left: 30px; width: 80%;">
+            <h3 class="d-flex" style="margin-left: 30px;">Check Lists</h3>
             <div class="d-flex justify-content-end"> 
                 <div class="search-layout">
                     <i class="fa fa-search icon"></i>
-                    <input class="input-field" type="text" placeholder="Search" name="search">      
+                    <input class="input-field" type="text" placeholder="Search" name="search"
+                     
+                    [(ngModel)]="name" (input)='Search()'
+                      >                    <!-- <p>{{to_search}}</p>   -->
+                
                 </div>
-                <button>Create</button>
+                 <div>
+                <button mat-raised-button>Create</button>
+            </div>
             </div>
             <div class="table-responsive-sm" style="line-height: 1.1">
             <table class="table table-sm table-striped table-bordered">
-                <thead class="thead-light">
+                <thead class="thead-light" style="text-align: center;">
                   <tr>
                     <th (click)="sort('name')">Name&nbsp;<i class="fa fa-sort"></i></th>
-                    <th (click)="sort('description')">Description&nbsp;<i class="fa fa-sort"></i></th>
+                    <th  (click)="sort('description')">Description&nbsp;<i class="fa fa-sort"></i></th>
                     <th>Create</th>
                     <th>Creation Date</th>
                     <th>Updation Date</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr *ngFor="let row of rows | orderBy: key :reverse | paginate: { itemsPerPage: 5, currentPage: p } " let i="index">
+                <tbody style="text-align: center;">
+                  <tr  *ngFor="let row of rows | orderBy: key :reverse | paginate: { itemsPerPage: 5, currentPage: p }" let i="index">
                     <td>{{row.Name}}</td>
                     <td>{{row.Description}}</td>
                     <td>{{row.Create}}</td>
@@ -53,34 +59,31 @@
                   </tr>
         
                 </tbody>
+                <!-- <tbody *ngIf="search">
+                    <tr  *ngFor="let row of rows | orderBy: key :reverse | paginate: { itemsPerPage: 5, currentPage: p } " let i="index">
+                      <td *ngIf="row.Name === to_search">{{row.Name}}</td>
+                      <td *ngIf="row.Name === to_search">{{row.Description}}</td>
+                      <td *ngIf="row.Name === to_search">{{row.Create}}</td>
+                      <td *ngIf="row.Name === to_search">{{row.CreationDate | date: "dd-MMM-yyyy"}}
+                          <p>{{row.CreationTime | date: "hh:mm:ss  'IST'"}}</p>
+                      </td>
+                      <td *ngIf="row.Name === to_search">{{row.UpdationDate | date: 'dd-MMM-yyyy'}}
+                          <p>{{row.UpdationTime | date: "hh:mm:ss 'IST' "}}</p>
+                      </td>
+                    </tr>
+          
+                  </tbody> -->
               </table> 
               
              
               </div>
               
             
-              <!-- <button mat-button color="primary">Primary</button> -->
               <div class="d-flex justify-content-center border-footer">
                 <pagination-controls (pageChange)="p = $event"
                 previousLabel="Previous" maxSize="5"
                       nextLabel="Next"></pagination-controls>
-                  <!-- <button  (click)="first()">
-                    <i class="fa fa-angle-double-left"></i>
-                    First</button>
-                  <div class="border-line"></div>
-                  <button>
-                    <i class="fa fa-angle-left"></i>
-                    Back</button>
-                  <div class="border-line"></div>
-                  <button>8</button>
-                  <div class="border-line"></div>
-                  <button>
-                    Next
-                    <i class="fa fa-angle-right"></i></button>
-                  <div class="border-line"></div>
-                  <button>
-                    Last
-                    <i class="fa fa-angle-double-right"></i></button> -->
+            
               </div>
         </div>
     </div>
