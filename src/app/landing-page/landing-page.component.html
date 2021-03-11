@@ -1,0 +1,88 @@
+<div>
+    <div class="d-flex">
+        <div class="menu-left-outline ">
+            <div style="margin-left: 5px;">
+                    <p (click)="dropdown()" class="ams">
+                        <i class="fa fa-folder" aria-hidden="true"></i>
+                            Audit Management System</p>
+                        <div *ngIf="show" style="margin-left: 20px; font-size: 15px;">    
+                            <p>Check Lists</p>
+                            <p>Reports</p>
+                        </div>     
+                    <p (click)="dropdown1()" class="ams">
+                        <i class="fa fa-folder-open" aria-hidden="true"></i>
+                            Vendor Management</p>
+                        <div *ngIf="show1" style="margin-left: 20px; font-size: 15px;">    
+                            <p>Manage Vendor</p>
+                            <p>Vendors</p>
+                        </div>
+             </div>
+            
+        </div>
+        <div class="" style="padding-top: 100px; padding-left: 30px; width: 80%;">
+            <h3>Check Lists</h3>
+            <div class="d-flex justify-content-end"> 
+                <div class="search-layout">
+                    <i class="fa fa-search icon"></i>
+                    <input class="input-field" type="text" placeholder="Search" name="search">      
+                </div>
+                <button>Create</button>
+            </div>
+            <div class="table-responsive-sm" style="line-height: 1.1">
+            <table class="table table-sm table-striped table-bordered">
+                <thead class="thead-light">
+                  <tr>
+                    <th (click)="sort('name')">Name&nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sort('description')">Description&nbsp;<i class="fa fa-sort"></i></th>
+                    <th>Create</th>
+                    <th>Creation Date</th>
+                    <th>Updation Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of rows | orderBy: key :reverse | paginate: { itemsPerPage: 5, currentPage: p } " let i="index">
+                    <td>{{row.Name}}</td>
+                    <td>{{row.Description}}</td>
+                    <td>{{row.Create}}</td>
+                    <td>{{row.CreationDate | date: "dd-MMM-yyyy"}}
+                        <p>{{row.CreationTime | date: "hh:mm:ss  'IST'"}}</p>
+                    </td>
+                    <td>{{row.UpdationDate | date: 'dd-MMM-yyyy'}}
+                        <p>{{row.UpdationTime | date: "hh:mm:ss 'IST' "}}</p>
+                    </td>
+                  </tr>
+        
+                </tbody>
+              </table> 
+              
+             
+              </div>
+              
+            
+              <!-- <button mat-button color="primary">Primary</button> -->
+              <div class="d-flex justify-content-center border-footer">
+                <pagination-controls (pageChange)="p = $event"
+                previousLabel="Previous" maxSize="5"
+                      nextLabel="Next"></pagination-controls>
+                  <!-- <button  (click)="first()">
+                    <i class="fa fa-angle-double-left"></i>
+                    First</button>
+                  <div class="border-line"></div>
+                  <button>
+                    <i class="fa fa-angle-left"></i>
+                    Back</button>
+                  <div class="border-line"></div>
+                  <button>8</button>
+                  <div class="border-line"></div>
+                  <button>
+                    Next
+                    <i class="fa fa-angle-right"></i></button>
+                  <div class="border-line"></div>
+                  <button>
+                    Last
+                    <i class="fa fa-angle-double-right"></i></button> -->
+              </div>
+        </div>
+    </div>
+</div>
+  
